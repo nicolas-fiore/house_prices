@@ -2,3 +2,5 @@
 __pycache__
 crime.csv
 houses.csv
+houses_test.csv
+columns.txt

@@ -1,0 +1,532 @@
+{
+    "15222": {
+        "count": 53,
+        "mean_price": 484381,
+        "total_volume": 25672200
+    },
+    "15219": {
+        "count": 27,
+        "mean_price": 233464,
+        "total_volume": 6303550
+    },
+    "15213": {
+        "count": 87,
+        "mean_price": 389736,
+        "total_volume": 33907059
+    },
+    "15201": {
+        "count": 132,
+        "mean_price": 404946,
+        "total_volume": 53452931
+    },
+    "15224": {
+        "count": 45,
+        "mean_price": 336192,
+        "total_volume": 15128663
+    },
+    "15232": {
+        "count": 68,
+        "mean_price": 667818,
+        "total_volume": 45411640
+    },
+    "15206": {
+        "count": 138,
+        "mean_price": 467372,
+        "total_volume": 64497410
+    },
+    "15208": {
+        "count": 48,
+        "mean_price": 570719,
+        "total_volume": 27394540
+    },
+    "15217": {
+        "count": 186,
+        "mean_price": 553163,
+        "total_volume": 102888436
+    },
+    "15221": {
+        "count": 155,
+        "mean_price": 236287,
+        "total_volume": 36624519
+    },
+    "15207": {
+        "count": 66,
+        "mean_price": 210584,
+        "total_volume": 13898599
+    },
+    "15218": {
+        "count": 108,
+        "mean_price": 289188,
+        "total_volume": 31232339
+    },
+    "15203": {
+        "count": 87,
+        "mean_price": 325183,
+        "total_volume": 28291002
+    },
+    "15210": {
+        "count": 124,
+        "mean_price": 142046,
+        "total_volume": 17613782
+    },
+    "15211": {
+        "count": 76,
+        "mean_price": 337329,
+        "total_volume": 25637050
+    },
+    "15216": {
+        "count": 223,
+        "mean_price": 281709,
+        "total_volume": 62821265
+    },
+    "15226": {
+        "count": 122,
+        "mean_price": 228045,
+        "total_volume": 27821589
+    },
+    "15220": {
+        "count": 128,
+        "mean_price": 277290,
+        "total_volume": 35493158
+    },
+    "15233": {
+        "count": 7,
+        "mean_price": 482857,
+        "total_volume": 3380000
+    },
+    "15204": {
+        "count": 28,
+        "mean_price": 160621,
+        "total_volume": 4497400
+    },
+    "15212": {
+        "count": 145,
+        "mean_price": 248125,
+        "total_volume": 35978138
+    },
+    "15214": {
+        "count": 59,
+        "mean_price": 221299,
+        "total_volume": 13056687
+    },
+    "15205": {
+        "count": 161,
+        "mean_price": 258934,
+        "total_volume": 41688481
+    },
+    "15120": {
+        "count": 102,
+        "mean_price": 163234,
+        "total_volume": 16649966
+    },
+    "15227": {
+        "count": 242,
+        "mean_price": 211774,
+        "total_volume": 51249480
+    },
+    "15132": {
+        "count": 70,
+        "mean_price": 103116,
+        "total_volume": 7218183
+    },
+    "15025": {
+        "count": 98,
+        "mean_price": 267360,
+        "total_volume": 26201310
+    },
+    "15110": {
+        "count": 15,
+        "mean_price": 84516,
+        "total_volume": 1267745
+    },
+    "15234": {
+        "count": 124,
+        "mean_price": 252280,
+        "total_volume": 31282820
+    },
+    "15202": {
+        "count": 119,
+        "mean_price": 264945,
+        "total_volume": 31528481
+    },
+    "15015": {
+        "count": 10,
+        "mean_price": 624050,
+        "total_volume": 6240500
+    },
+    "15215": {
+        "count": 89,
+        "mean_price": 519879,
+        "total_volume": 46269294
+    },
+    "15106": {
+        "count": 118,
+        "mean_price": 266719,
+        "total_volume": 31472850
+    },
+    "15017": {
+        "count": 155,
+        "mean_price": 337692,
+        "total_volume": 52342366
+    },
+    "15238": {
+        "count": 104,
+        "mean_price": 726835,
+        "total_volume": 75590888
+    },
+    "15014": {
+        "count": 16,
+        "mean_price": 160344,
+        "total_volume": 2565514
+    },
+    "15084": {
+        "count": 27,
+        "mean_price": 198694,
+        "total_volume": 5364750
+    },
+    "15104": {
+        "count": 10,
+        "mean_price": 83875,
+        "total_volume": 838750
+    },
+    "15235": {
+        "count": 261,
+        "mean_price": 215731,
+        "total_volume": 56305972
+    },
+    "15108": {
+        "count": 320,
+        "mean_price": 324469,
+        "total_volume": 103830256
+    },
+    "15024": {
+        "count": 68,
+        "mean_price": 291820,
+        "total_volume": 19843826
+    },
+    "15145": {
+        "count": 23,
+        "mean_price": 208508,
+        "total_volume": 4795700
+    },
+    "15112": {
+        "count": 12,
+        "mean_price": 143500,
+        "total_volume": 1722000
+    },
+    "15045": {
+        "count": 19,
+        "mean_price": 116641,
+        "total_volume": 2216179
+    },
+    "15143": {
+        "count": 190,
+        "mean_price": 630015,
+        "total_volume": 119702860
+    },
+    "15223": {
+        "count": 47,
+        "mean_price": 216790,
+        "total_volume": 10189130
+    },
+    "15035": {
+        "count": 14,
+        "mean_price": 122978,
+        "total_volume": 1721697
+    },
+    "15034": {
+        "count": 5,
+        "mean_price": 130200,
+        "total_volume": 651000
+    },
+    "15037": {
+        "count": 50,
+        "mean_price": 202548,
+        "total_volume": 10127404
+    },
+    "15209": {
+        "count": 94,
+        "mean_price": 271669,
+        "total_volume": 25536972
+    },
+    "15136": {
+        "count": 139,
+        "mean_price": 257495,
+        "total_volume": 35791852
+    },
+    "15144": {
+        "count": 26,
+        "mean_price": 182675,
+        "total_volume": 4749550
+    },
+    "15139": {
+        "count": 61,
+        "mean_price": 435571,
+        "total_volume": 26569850
+    },
+    "15140": {
+        "count": 8,
+        "mean_price": 103987,
+        "total_volume": 831900
+    },
+    "15071": {
+        "count": 68,
+        "mean_price": 345067,
+        "total_volume": 23464600
+    },
+    "15133": {
+        "count": 50,
+        "mean_price": 139498,
+        "total_volume": 6974918
+    },
+    "15056": {
+        "count": 8,
+        "mean_price": 201974,
+        "total_volume": 1615797
+    },
+    "15088": {
+        "count": 3,
+        "mean_price": 185466,
+        "total_volume": 556400
+    },
+    "15147": {
+        "count": 117,
+        "mean_price": 195924,
+        "total_volume": 22923200
+    },
+    "15085": {
+        "count": 1,
+        "mean_price": 170000,
+        "total_volume": 170000
+    },
+    "15229": {
+        "count": 118,
+        "mean_price": 271082,
+        "total_volume": 31987753
+    },
+    "15122": {
+        "count": 143,
+        "mean_price": 184689,
+        "total_volume": 26410657
+    },
+    "15237": {
+        "count": 388,
+        "mean_price": 364485,
+        "total_volume": 141420290
+    },
+    "15148": {
+        "count": 8,
+        "mean_price": 91676,
+        "total_volume": 733411
+    },
+    "15236": {
+        "count": 262,
+        "mean_price": 267629,
+        "total_volume": 70118821
+    },
+    "15102": {
+        "count": 223,
+        "mean_price": 317807,
+        "total_volume": 70871083
+    },
+    "15241": {
+        "count": 167,
+        "mean_price": 571549,
+        "total_volume": 95448787
+    },
+    "15131": {
+        "count": 39,
+        "mean_price": 177183,
+        "total_volume": 6910150
+    },
+    "15146": {
+        "count": 228,
+        "mean_price": 260815,
+        "total_volume": 59465988
+    },
+    "15332": {
+        "count": 5,
+        "mean_price": 280200,
+        "total_volume": 1401000
+    },
+    "15239": {
+        "count": 155,
+        "mean_price": 275999,
+        "total_volume": 42779961
+    },
+    "15068": {
+        "count": 31,
+        "mean_price": 315603,
+        "total_volume": 9783694
+    },
+    "15003": {
+        "count": 9,
+        "mean_price": 160294,
+        "total_volume": 1442650
+    },
+    "15047": {
+        "count": 4,
+        "mean_price": 146725,
+        "total_volume": 586900
+    },
+    "15142": {
+        "count": 17,
+        "mean_price": 729468,
+        "total_volume": 12400970
+    },
+    "15228": {
+        "count": 151,
+        "mean_price": 477049,
+        "total_volume": 72034432
+    },
+    "15090": {
+        "count": 208,
+        "mean_price": 571909,
+        "total_volume": 118957183
+    },
+    "15126": {
+        "count": 54,
+        "mean_price": 336212,
+        "total_volume": 18155496
+    },
+    "15065": {
+        "count": 71,
+        "mean_price": 201389,
+        "total_volume": 14298650
+    },
+    "15026": {
+        "count": 7,
+        "mean_price": 455000,
+        "total_volume": 3185000
+    },
+    "15135": {
+        "count": 21,
+        "mean_price": 230635,
+        "total_volume": 4843350
+    },
+    "15046": {
+        "count": 20,
+        "mean_price": 298275,
+        "total_volume": 5965500
+    },
+    "15030": {
+        "count": 6,
+        "mean_price": 104316,
+        "total_volume": 625900
+    },
+    "15101": {
+        "count": 172,
+        "mean_price": 421088,
+        "total_volume": 72427250
+    },
+    "15044": {
+        "count": 228,
+        "mean_price": 514805,
+        "total_volume": 117375554
+    },
+    "15018": {
+        "count": 3,
+        "mean_price": 70000,
+        "total_volume": 210000
+    },
+    "15083": {
+        "count": 1,
+        "mean_price": 185000,
+        "total_volume": 185000
+    },
+    "15086": {
+        "count": 9,
+        "mean_price": 435218,
+        "total_volume": 3916970
+    },
+    "16046": {
+        "count": 29,
+        "mean_price": 704661,
+        "total_volume": 20435180
+    },
+    "15005": {
+        "count": 7,
+        "mean_price": 1238714,
+        "total_volume": 8671000
+    },
+    "15116": {
+        "count": 108,
+        "mean_price": 330047,
+        "total_volume": 35645134
+    },
+    "15051": {
+        "count": 2,
+        "mean_price": 221500,
+        "total_volume": 443000
+    },
+    "15243": {
+        "count": 130,
+        "mean_price": 414951,
+        "total_volume": 53943677
+    },
+    "15225": {
+        "count": 9,
+        "mean_price": 156100,
+        "total_volume": 1404900
+    },
+    "15057": {
+        "count": 61,
+        "mean_price": 474739,
+        "total_volume": 28959131
+    },
+    "15137": {
+        "count": 72,
+        "mean_price": 155902,
+        "total_volume": 11224951
+    },
+    "16059": {
+        "count": 2,
+        "mean_price": 425000,
+        "total_volume": 850000
+    },
+    "15129": {
+        "count": 91,
+        "mean_price": 308804,
+        "total_volume": 28101238
+    },
+    "15031": {
+        "count": 2,
+        "mean_price": 172550,
+        "total_volume": 345100
+    },
+    "15064": {
+        "count": 1,
+        "mean_price": 275000,
+        "total_volume": 275000
+    },
+    "15049": {
+        "count": 7,
+        "mean_price": 202914,
+        "total_volume": 1420400
+    },
+    "15082": {
+        "count": 2,
+        "mean_price": 253200,
+        "total_volume": 506400
+    },
+    "15075": {
+        "count": 1,
+        "mean_price": 110000,
+        "total_volume": 110000
+    },
+    "15006": {
+        "count": 4,
+        "mean_price": 182000,
+        "total_volume": 728000
+    },
+    "15076": {
+        "count": 4,
+        "mean_price": 158000,
+        "total_volume": 632000
+    },
+    "15007": {
+        "count": 2,
+        "mean_price": 327500,
+        "total_volume": 655000
+    }
+}
