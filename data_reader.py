@@ -11,10 +11,10 @@ import json, re, sys
 #//NEED [01-01-2025] - [12-31-2025] dates just for grpah 
 #///TODO: sq foot per area {price \ sqft} FINISHEDLIVINGAREA
 #///TODO: get median
-#TODO: 
+#TODO: user asks for 1 - 20 compare zip and makes chart (maybe)
 #TODO: maybe group zip code with how many bedrooms
-#TODO: factor in previous sale price to see if zipcodes have "fell off" or vice versa
-#TODO: make a sql table maybe
+#TODO: factor in previous sale price to see if zipcodes have "fell off" or vice versa (maybe)
+#///TODO: make a sql table
 
 # pd.set_option('display.max_rows', None)
 # df = pd.read_csv("houses_test.csv")
@@ -22,7 +22,7 @@ df = pd.read_csv("houses.csv")
 
 
 df['SALEDATE'] = pd.to_datetime(df['SALEDATE'])
-df = df.loc[(df['SALEDATE'] >= '2024-01-01') & (df['SALEDATE'] <= '2025-12-31')]
+df = df.loc[(df['SALEDATE'] >= '2023-01-01') & (df['SALEDATE'] <= '2025-12-31')]
 
 df = df.loc[(df['SALEDESC'] == "VALID SALE") & (df['CLASS'] == 'R')]
 df = df[['PROPERTYZIP', 'SALEPRICE', 'CLASS', 'FAIRMARKETTOTAL', 'PREVSALEPRICE', 'SALEDESC', 'SALEDATE', 'FINISHEDLIVINGAREA', 'BEDROOMS', 'PROPERTYADDRESS' ]].dropna()
@@ -87,10 +87,19 @@ for year in years:
                 "total_volume": int(total)
             }     
 
+
+
 with open("house_prices.json", "w") as j: 
     j.write(json.dumps(price_dict, indent=4))
 
+#?print(price_dict[2025]["15239"]) acces the dict
 
+# y = [price_dict[2025]["15239"]["mean_price"], price_dict[2024]["15239"]["mean_price"]]
+# x = ["2025", "2024"]
+# plt.bar(x, y)
+# plt.yticks(np.arange(250000,280000,1000))
+# print(2025,price_dict[2025]["15239"]["mean_price"])
+# plt.show()
 print_overall()
 
 
@@ -103,6 +112,5 @@ app = Flask(__name__)
 @app.route("/")
 def index(): 
     return render_template("index.html", df2=df)
-
 
 
