@@ -3,6 +3,9 @@ __pycache__
 crime.csv
 houses.csv
 houses_test.csv
-columns.txt
+house_big_2.csv
+houses_small_2.csv
+todo.md
 zipcodes.db
 house_prices.json
+data_test.py

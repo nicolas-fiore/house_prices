@@ -1,7 +1,15 @@
 {% extends "layout.html" %}
 
 {% block body %} 
-    <p>{{ df2 }}</p>
+    <h1>Alleghany PA Zipcodes</h1>
+    <form action="/test" method="post">
+        
+        <input name="zipcode" autocomplete="off" autofocus placeholder="Zipcode" type="text">
+        <button type="submit">Sumbit</button>
+    </form>
+    {% for zip in zipcodes %}
+        <p>{{ zip }}</p>
+    {% endfor %}
 
 
 {% endblock %} 

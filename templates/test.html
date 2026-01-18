@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    {% for price in median_price %}
+    <p>{{ price }}</p>
+    {% endfor %}
+{% endblock %}

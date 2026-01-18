@@ -6,7 +6,6 @@ CREATE TABLE IF NOT EXISTS zipcodes (
     median_price INT,
     mean_price INT,
     price_per_sqrft INT,
-    total_volume INT
+    total_volume INT,
+    CONSTRAINT uq_zipcodes UNIQUE ('year', zipcode)
 )
-
-

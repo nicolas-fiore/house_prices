@@ -2,6 +2,8 @@ import sqlite3
 import json
 
 #Database ranges from 2000-01-01 to 2025-12-31
+#id's up to 2964
+#Database complies very fast /NOTE
 con = sqlite3.connect("zipcodes.db")
 
 with open ('schema.sql') as f: 
@@ -18,12 +20,14 @@ for year, data in data_dict.items():
     for z, v in data.items(): 
         print(f"{z} - THIS IS V: {v.items()}")
 
-        c.execute("""INSERT INTO zipcodes (year, zipcode, houses_sold, median_price, mean_price, price_per_sqrft, total_volume) 
+        c.execute("""INSERT OR IGNORE INTO zipcodes (year, zipcode, houses_sold, median_price, mean_price, price_per_sqrft, total_volume) 
                 VALUES (?, ?, ?, ?, ?, ?, ?)"""
                 ,(year, z, *v.values()))
         
-
 con.commit()
+test = c.execute("SELECT COUNT(id) FROM zipcodes").fetchone()
+print(f"if {[i for i in test]} == 2964, we chillin!")
+
 con.close()
 
 
