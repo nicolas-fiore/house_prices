@@ -1,5 +1,4 @@
-import json
-import sqlite3
+import sqlite3, json, jsonify
 import matplotlib.pyplot as plt 
 from graph import house_x_median
 from matplotlib.figure import Figure
@@ -63,12 +62,15 @@ def graph():
     #fetch houses_sold and median_price from entered zipcode
     x1 = c.execute("SELECT houses_sold FROM zipcodes WHERE zipcode == ?", (zipcode,)).fetchall() 
     x2 = c.execute("SELECT median_price FROM zipcodes WHERE zipcode == ?", (zipcode,)).fetchall() 
+    info = c.execute("SELECT AVG(mean_price), AVG(price_per_sqrft) FROM zipcodes WHERE zipcode == ?", (zipcode,)).fetchone()
     con.close()
-
+    
     #assign houses_sold to (x1) and median_price to (x2)
     x1 = [i[0] for i in x1]
     x2 = [j[0] for j in x2]
     graph = house_x_median(x1, x2, zipcode)
-
+    for value in info: 
+        print(value)
+    
     print(list(zip(x1, x2)))
-    return render_template('test.html', graph=graph)
+    return render_template('test.html', graph=graph, info=info)

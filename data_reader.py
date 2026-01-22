@@ -1,5 +1,5 @@
 import pandas as pd
-import json, cpi 
+import json, cpi
 
 df = pd.read_csv("houses.csv")
 
@@ -74,7 +74,7 @@ def compute_price(df):
         print("Year done")  
     return price_dict
     
-price_dict = compute_price(df)
+# price_dict = compute_price(df)
 print()
 print_overall()
 
@@ -83,6 +83,6 @@ def write_json(price_dict):
     print("Writing JSON file!......")
     with open("house_prices.json", "w") as j: 
         j.write(json.dumps(price_dict, indent=4))
-write_json(price_dict) 
+# write_json(price_dict) 
 
 

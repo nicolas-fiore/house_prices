@@ -3,5 +3,7 @@
 {% block body %}
 
     <img src='data:image/png;base64,{{ graph }}'/>
-    
+    {% for i in info %}
+        <p>{{ i }}</p>
+    {% endfor %}
 {% endblock %}
