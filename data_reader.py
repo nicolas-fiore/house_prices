@@ -1,7 +1,11 @@
 import pandas as pd
 import json, cpi
 
-df = pd.read_csv("houses.csv")
+INFILE = "data/houses.csv"
+OUTFILE = "data/C_houses.csv"
+
+
+df = pd.read_csv(INFILE)
 
 df['SALEDATE'] = pd.to_datetime(df['SALEDATE'])
 df = df.loc[(df['SALEDATE'] >= '2000-01-01') & (df['SALEDATE'] <= '2025-12-31')] #year data is taken
@@ -12,6 +16,9 @@ df['YEAR'] = df['SALEDATE'].dt.year #creates collumn of only year
 df = df[['PROPERTYZIP', 'SALEPRICE', 'SALEDESC', 'SALEDATE', 'FINISHEDLIVINGAREA', 'YEAR' ]].dropna()
 df['PROPERTYZIP'] = df['PROPERTYZIP'].astype('Int64').astype('str')
 df['SALEPRICE'] = df['SALEPRICE'].astype('Int64')
+
+df.to_csv(OUTFILE)
+
 
 #overall total
 def print_overall(): 

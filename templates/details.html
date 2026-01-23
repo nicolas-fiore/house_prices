@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <img src='data:image/png;base64,{{ graph }}'/>
+        <h1>Average's For Entire Zipcode Through (2020-2025)</h1>
+        <ul>
+            <li>Mean Price: {{ "${:,.2f}".format(info[0]) }}</li>
+            <li>Price / Sq Ft: {{ "{:.2f}".format(info[1]) }}</li>
+            <li>Houses Sold: {{ info[2]|round|int }}</li>
+        </ul>
+        
+    
+{% endblock %}

@@ -1,6 +1,6 @@
-import sqlite3, json, jsonify
+import sqlite3, json
 import matplotlib.pyplot as plt 
-from graph import house_x_median
+from graph import house_x_median, zipcodes_x_median
 from matplotlib.figure import Figure
 import base64
 from io import BytesIO
@@ -23,7 +23,7 @@ ZIPCODES = ['15003', '15005', '15006', '15007', '15014', '15015', '15017', '1501
             '15235', '15236', '15237', '15238', '15239', '15241', '15243', '15321', '15332', '15642', 
             '15668', '16046', '16059', '16229']
 
-
+print(len(ZIPCODES))
 def get_db(): 
     con = sqlite3.connect("zipcodes.db")
     con.row_factory = sqlite3.Row
@@ -33,25 +33,29 @@ def get_db():
 with open ('house_prices.json') as j: 
     data_dict = json.load(j)
     
-y= []
-for i in data_dict.values(): 
-    x = []
-    for j in i.values(): 
-        x.append(j['median_price'])
-    y.append(x)
-
-
 
 @app.route('/')
 def index(): 
-    return render_template('index.html',zipcodes=ZIPCODES)
+    
+    #connect db
+    con = get_db()
+    c = con.cursor()
+
+    #get median prices
+    median = c.execute("SELECT median_price from zipcodes").fetchall()
+    con.close()
+
+    #get 0'th item from list of tuples [..,]
+    median = [i[0] for i in median]
+    graph = zipcodes_x_median(median, ZIPCODES)
+    return render_template('index.html',zipcodes=ZIPCODES, graph=graph)
 
 
-@app.route('/test', methods=['POST'])
-def graph():
+@app.route('/details')
+def gen_graph():
 
     #get zipcode
-    zipcode = request.form.get('zipcode')
+    zipcode = request.args.get('zipcodes')
     if zipcode not in ZIPCODES: 
         return render_template('error.html')
     
@@ -59,10 +63,10 @@ def graph():
     con = get_db()
     c = con.cursor()
 
-    #fetch houses_sold and median_price from entered zipcode
+    #fetch houses_sold and median_price from entered zipcode and details
     x1 = c.execute("SELECT houses_sold FROM zipcodes WHERE zipcode == ?", (zipcode,)).fetchall() 
     x2 = c.execute("SELECT median_price FROM zipcodes WHERE zipcode == ?", (zipcode,)).fetchall() 
-    info = c.execute("SELECT AVG(mean_price), AVG(price_per_sqrft) FROM zipcodes WHERE zipcode == ?", (zipcode,)).fetchone()
+    info = c.execute("SELECT AVG(mean_price), AVG(price_per_sqrft), AVG(houses_sold) FROM zipcodes WHERE zipcode == ? AND year BETWEEN 2020 AND 2025", (zipcode,)).fetchone()
     con.close()
     
     #assign houses_sold to (x1) and median_price to (x2)
@@ -71,6 +75,6 @@ def graph():
     graph = house_x_median(x1, x2, zipcode)
     for value in info: 
         print(value)
-    
+
     print(list(zip(x1, x2)))
-    return render_template('test.html', graph=graph, info=info)
+    return render_template('details.html', graph=graph, info=info)

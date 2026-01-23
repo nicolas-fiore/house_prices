@@ -2,14 +2,17 @@
 
 {% block body %} 
     <h1>Alleghany PA Zipcodes</h1>
-    <form action="/test" method="post">
+    <h1 style="color: red;">UNDER CONTRUCTION </h1>
+    <form action="/details" method="get">
         
-        <input name="zipcode" autocomplete="off" autofocus placeholder="Zipcode" type="text">
+        <input list="zipcode" name="zipcodes" autocomplete="off" autofocus placeholder="Zipcode" type="text">
+            <datalist id="zipcode">
+                {% for zip in zipcodes %}
+                    <option value='{{ zip }}'>
+                {% endfor %}
+            </datalist>
         <button type="submit">Sumbit</button>
     </form>
-    {% for zip in zipcodes %}
-        <p>{{ zip }}</p>
-    {% endfor %}
-
-
+    <img src='data:image/png;base64,{{ graph }}'/>
+    <h1 style="color: red;">UNDER CONTRUCTION </h1>
 {% endblock %} 

@@ -1,7 +1,6 @@
 .venv
 __pycache__
 crime.csv
-houses.csv
 houses_test.csv
 house_big_2.csv
 houses_small_2.csv
@@ -9,3 +8,5 @@ todo.md
 zipcodes.db
 house_prices.json
 data_test.py
+houses.csv
+C_houses.csv
