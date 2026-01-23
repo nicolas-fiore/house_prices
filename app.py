@@ -66,7 +66,7 @@ def gen_graph():
     #fetch houses_sold and median_price from entered zipcode and details
     x1 = c.execute("SELECT houses_sold FROM zipcodes WHERE zipcode == ?", (zipcode,)).fetchall() 
     x2 = c.execute("SELECT median_price FROM zipcodes WHERE zipcode == ?", (zipcode,)).fetchall() 
-    info = c.execute("SELECT AVG(mean_price), AVG(price_per_sqrft), AVG(houses_sold) FROM zipcodes WHERE zipcode == ? AND year BETWEEN 2020 AND 2025", (zipcode,)).fetchone()
+    info = c.execute("SELECT AVG(mean_price), AVG(price_per_sqrft), AVG(houses_sold), AVG(total_volume) FROM zipcodes WHERE zipcode == ? AND year BETWEEN 2020 AND 2025", (zipcode,)).fetchone()
     con.close()
     
     #assign houses_sold to (x1) and median_price to (x2)

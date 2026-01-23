@@ -13,7 +13,7 @@ df = df.loc[(df['SALEDATE'] >= '2000-01-01') & (df['SALEDATE'] <= '2025-12-31')]
 #checks for VALID SALES AND R(residential) CLASS TYPES ONLY
 df = df.loc[(df['SALEDESC'] == "VALID SALE") & (df['CLASS'] == 'R')]
 df['YEAR'] = df['SALEDATE'].dt.year #creates collumn of only year
-df = df[['PROPERTYZIP', 'SALEPRICE', 'SALEDESC', 'SALEDATE', 'FINISHEDLIVINGAREA', 'YEAR' ]].dropna()
+df = df[['PROPERTYZIP', 'SALEPRICE', 'SALEDESC', 'SALEDATE', 'FINISHEDLIVINGAREA', 'YEAR', 'BEDROOMS']].dropna()
 df['PROPERTYZIP'] = df['PROPERTYZIP'].astype('Int64').astype('str')
 df['SALEPRICE'] = df['SALEPRICE'].astype('Int64')
 
