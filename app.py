@@ -1,10 +1,5 @@
 import sqlite3, json
-import matplotlib.pyplot as plt 
 from graph import house_x_median, zipcodes_x_median
-from matplotlib.figure import Figure
-import base64
-from io import BytesIO
-
 import numpy as np
 from flask import Flask, request, redirect, render_template
 
@@ -36,7 +31,6 @@ with open ('house_prices.json') as j:
 
 @app.route('/')
 def index(): 
-    
     #connect db
     con = get_db()
     c = con.cursor()
@@ -48,14 +42,14 @@ def index():
     #get 0'th item from list of tuples [..,]
     median = [i[0] for i in median]
     graph = zipcodes_x_median(median, ZIPCODES)
-    return render_template('index.html',zipcodes=ZIPCODES, graph=graph)
+    return render_template('index.html',ZIPCODES=ZIPCODES, graph=graph)
+
 
 
 @app.route('/details')
 def gen_graph():
-
     #get zipcode
-    zipcode = request.args.get('zipcodes')
+    zipcode = request.args.get('zipcode')
     if zipcode not in ZIPCODES: 
         return render_template('error.html')
     
@@ -64,9 +58,11 @@ def gen_graph():
     c = con.cursor()
 
     #fetch houses_sold and median_price from entered zipcode and details
-    x1 = c.execute("SELECT houses_sold FROM zipcodes WHERE zipcode == ?", (zipcode,)).fetchall() 
-    x2 = c.execute("SELECT median_price FROM zipcodes WHERE zipcode == ?", (zipcode,)).fetchall() 
-    info = c.execute("SELECT AVG(mean_price), AVG(price_per_sqrft), AVG(houses_sold), AVG(total_volume) FROM zipcodes WHERE zipcode == ? AND year BETWEEN 2020 AND 2025", (zipcode,)).fetchone()
+    data = c.execute("SELECT * FROM zipcodes WHERE zipcode = ?", (zipcode,)).fetchall()
+    x1 = c.execute("SELECT houses_sold FROM zipcodes WHERE zipcode = ?", (zipcode,)).fetchall() 
+    x2 = c.execute("SELECT median_price FROM zipcodes WHERE zipcode = ?", (zipcode,)).fetchall() 
+    info = c.execute("SELECT AVG(mean_price), AVG(price_per_sqrft), AVG(houses_sold), AVG(total_volume) FROM zipcodes WHERE zipcode = ? AND year BETWEEN 2020 AND 2025", (zipcode,)).fetchone()
+    
     con.close()
     
     #assign houses_sold to (x1) and median_price to (x2)
@@ -75,6 +71,27 @@ def gen_graph():
     graph = house_x_median(x1, x2, zipcode)
     for value in info: 
         print(value)
-
+    print(len(data))
+    
+    print('-------------------')
+    print("this is data: ")
     print(list(zip(x1, x2)))
-    return render_template('details.html', graph=graph, info=info)
+    return render_template('details.html', 
+                           graph=graph, 
+                           info=info,
+                           display=zipcode,
+                           ZIPCODES=ZIPCODES)
+
+
+@app.route('/api/details')
+def get_api(): 
+    zipcode = request.args.get('zipcode')
+    if zipcode not in ZIPCODES: 
+        return render_template('error.html')
+
+    zip_data = {
+        year: year_dict.get(zipcode)
+        for year, year_dict in data_dict.items()
+    }
+
+    return zip_data

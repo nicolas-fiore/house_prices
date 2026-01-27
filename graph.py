@@ -17,7 +17,7 @@ def house_x_median(x1, x2, zipcode):
     #bar chart (Houses Sold)
     color_bar = 'tab:blue'
     ax1.set_xlabel('Year', fontsize=12)
-    ax1.set_ylabel('Number of Houses Sold', color=color_bar, fontsize=12)
+    ax1.set_ylabel('Houses Sold', color=color_bar, fontsize=12)
     ax1.bar(years, x1, color=color_bar, alpha=0.6, width=0.6)
     ax1.tick_params(axis='y', labelcolor=color_bar)
     ax1.grid(axis='x', linestyle='-.', alpha=0.3) # Vertical grid helps align years
@@ -31,7 +31,7 @@ def house_x_median(x1, x2, zipcode):
 
     #title and size
     fig.suptitle(f'Volume vs. Price for {zipcode} Through (2000-2025)', fontsize=16)
-    fig.set_size_inches(8, 4)
+    fig.set_size_inches(10, 5)
     fig.tight_layout()
 
     #img save
@@ -64,7 +64,7 @@ def zipcodes_x_median(median, zipcodes): #!(2964: median_values) (114: zipcodes)
     ax.set_yticks(range(len(years)), labels=years)
 
     #set title
-    fig.set_size_inches(19, 6)
+    fig.set_size_inches(18, 6.5)
     ax.set_title('ZIPCODES AND THIER RESPECTIVE MEDIAN PRICE (2000-2025)')
     fig.tight_layout()
 

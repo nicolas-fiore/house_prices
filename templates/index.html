@@ -1,18 +1,27 @@
 {% extends "layout.html" %}
 
+{% block style_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+{% endblock %}
+
 {% block body %} 
+    
     <h1>Alleghany PA Zipcodes</h1>
-    <h1 style="color: red;">UNDER CONTRUCTION </h1>
-    <form action="/details" method="get">
-        
-        <input list="zipcode" name="zipcodes" autocomplete="off" autofocus placeholder="Zipcode" type="text">
-            <datalist id="zipcode">
-                {% for zip in zipcodes %}
-                    <option value='{{ zip }}'>
-                {% endfor %}
-            </datalist>
-        <button type="submit">Sumbit</button>
-    </form>
-    <img src='data:image/png;base64,{{ graph }}'/>
-    <h1 style="color: red;">UNDER CONTRUCTION </h1>
+    <div id="search">
+        <form action="{{ url_for('gen_graph') }}" method="get">
+            <input list="zipcode" name="zipcode" autocomplete="off" autofocus placeholder="Zipcode" type="text">
+                <datalist id="zipcode">
+                    {% for zip in ZIPCODES %}
+                        <option value='{{ zip }}'>
+                    {% endfor %}
+                </datalist>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div id="graph">
+        <img src='data:image/png;base64,{{ graph }}'/>
+    </div>
+    <h1>Click To Go To A Random Zipcode! {{ ZIPCODES | random }}</h1>
+    <h1>NEED TO ADD THE PIE CHARTS TOO</h1>
+    
 {% endblock %} 

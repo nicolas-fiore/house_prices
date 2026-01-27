@@ -1,0 +1,153 @@
+/* * {
+    outline: 1px red dotted;
+} */
+
+/*
+#f5f5f5 light grey
+#2c2b30 light black
+#d6d6d6 grey
+#f58f7c salmon
+#a0d2eb light blue
+*/
+
+
+body { 
+    margin: 0px;
+    background-color: #2c2b30;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/*
+SEARCH BOX
+*/
+
+#search{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; 
+}
+
+
+#search form { 
+    display: flex; 
+    gap: 10px;
+}
+
+#search input { 
+    padding: 8px;
+    font-size: 16px;
+    width: 700px;
+    color: #000000;
+}
+
+
+#search button { 
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 8px 16px 8px 16px;
+    background-color: #1f77b4;
+    color: white;
+}
+
+#search a{ 
+    padding-right: 40px;
+    font-size: 20px;
+}
+
+#search a:link { 
+    color: #1688da;
+}
+
+#search a:visited {
+    color: #ecc385;
+}
+
+#search a:hover { 
+    color: white;
+}
+
+
+/*
+GRAPH
+*/
+
+#graph {
+    text-align: center;
+}
+
+#graph img{
+    box-shadow: 0px 0px 20px #5f5e5ed8;
+}
+
+
+/*
+MIDDLE
+*/
+
+#info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    max-width: 1000px;
+    height: 270px;
+    margin: 20px auto;
+    margin-top: 10px; 
+    margin-bottom: 0px;
+    border-radius: 15px;
+    border: solid 3px #000000;
+    background-color: #f5f5f5;
+    color: #333333;
+    
+}
+
+#info h1 { 
+    color: #d32f2f;
+    font-size: 30px;
+    margin: 0px 0px 5px 
+}
+
+#info ul {
+    list-style-type: none;
+    justify-content: center;
+    padding-left: 0px;
+    margin: 0px
+}
+
+#info li { 
+    text-align: center;
+    width: 700px;
+    padding: 5px 0px 5px 0px;
+    border-bottom: 1px solid #000000; 
+    
+}
+
+/*
+BOTTOM
+*/
+
+#footer { 
+    text-align: center;
+    font-size: 20px;
+    padding-top: 5px;
+    margin: 0px;
+    
+}
+
+#footer a:link { 
+    color: #1f77b4;
+}
+
+#footer a:visited {
+    color: #1f77b4;
+}
+
+#footer a:hover { 
+    color: white;
+}
+
+
+

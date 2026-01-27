@@ -77,7 +77,9 @@ def compute_price(df):
                     "mean_price": int(total / count), 
                     "price_per_sqrft":int(sqrft), 
                     "total_volume": int(total)
+                    
                 }   
+            
         print("Year done")  
     return price_dict
     
