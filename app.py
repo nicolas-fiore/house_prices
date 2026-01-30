@@ -1,5 +1,5 @@
 import sqlite3, json
-from graph import house_x_median, zipcodes_x_median
+from graph import house_x_median, zipcodes_x_median, piechart
 import numpy as np
 from flask import Flask, request, redirect, render_template
 
@@ -38,9 +38,10 @@ def index():
     #get median prices
     median = c.execute("SELECT median_price from zipcodes").fetchall()
     con.close()
-
     #get 0'th item from list of tuples [..,]
     median = [i[0] for i in median]
+    print("THIS IS THE Median", len(median))
+    print("-----------------")
     graph = zipcodes_x_median(median, ZIPCODES)
     return render_template('index.html',ZIPCODES=ZIPCODES, graph=graph)
 
@@ -58,26 +59,37 @@ def gen_graph():
     c = con.cursor()
 
     #fetch houses_sold and median_price from entered zipcode and details
-    data = c.execute("SELECT * FROM zipcodes WHERE zipcode = ?", (zipcode,)).fetchall()
-    x1 = c.execute("SELECT houses_sold FROM zipcodes WHERE zipcode = ?", (zipcode,)).fetchall() 
-    x2 = c.execute("SELECT median_price FROM zipcodes WHERE zipcode = ?", (zipcode,)).fetchall() 
-    info = c.execute("SELECT AVG(mean_price), AVG(price_per_sqrft), AVG(houses_sold), AVG(total_volume) FROM zipcodes WHERE zipcode = ? AND year BETWEEN 2020 AND 2025", (zipcode,)).fetchone()
     
+    rows = c.execute(
+        "SELECT houses_sold, median_price, bedrooms_1, bedrooms_2, bedrooms_3, bedrooms_over_3 "
+        "FROM zipcodes WHERE zipcode = ?", 
+        (zipcode,)
+    ).fetchall()
+    
+    info = c.execute(
+        "SELECT AVG(mean_price), AVG(price_per_sqrft), AVG(houses_sold), AVG(total_volume) "
+        "FROM zipcodes WHERE zipcode = ? AND year BETWEEN 2020 AND 2025", 
+        (zipcode,)
+    ).fetchone()
+
     con.close()
     
-    #assign houses_sold to (x1) and median_price to (x2)
-    x1 = [i[0] for i in x1]
-    x2 = [j[0] for j in x2]
-    graph = house_x_median(x1, x2, zipcode)
+    x1 = [r[0] for r in rows] #houses_sold
+    x2 = [r[1] for r in rows] #median_price
+    bedrooms_counts = [(r[2], r[3], r[4], r[5]) for r in rows]
+    
+    barchart = house_x_median(x1, x2, zipcode)
+    #piechart = piechart(bedroom_counts)
+
+    print(bedrooms_counts)
     for value in info: 
         print(value)
-    print(len(data))
-    
     print('-------------------')
     print("this is data: ")
     print(list(zip(x1, x2)))
+    
     return render_template('details.html', 
-                           graph=graph, 
+                           barchart=barchart, 
                            info=info,
                            display=zipcode,
                            ZIPCODES=ZIPCODES)

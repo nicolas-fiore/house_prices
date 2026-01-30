@@ -20,8 +20,8 @@ for year, data in data_dict.items():
     for z, v in data.items(): 
         print(f"{z} - THIS IS V: {v.items()}")
 
-        c.execute("""INSERT OR IGNORE INTO zipcodes (year, zipcode, houses_sold, median_price, mean_price, price_per_sqrft, total_volume) 
-                VALUES (?, ?, ?, ?, ?, ?, ?)"""
+        c.execute("""INSERT OR IGNORE INTO zipcodes (year, zipcode, houses_sold, median_price, mean_price, price_per_sqrft, total_volume, bedrooms_1, bedrooms_2, bedrooms_3, bedrooms_over_3) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
                 ,(year, z, *v.values()))
         
 con.commit()

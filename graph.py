@@ -3,6 +3,7 @@ import base64
 from io import BytesIO
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 #displays house vs median on twin x axis via bar and line chart
 def house_x_median(x1, x2, zipcode): 
@@ -42,9 +43,9 @@ def house_x_median(x1, x2, zipcode):
 
 
 #displays all zipcodes and thier medians via heatmap 
-def zipcodes_x_median(median, zipcodes): #!(2964: median_values) (114: zipcodes) (25: years)
+def zipcodes_x_median(median, zipcodes): #!(2964: median_values) (114: zipcodes) (25: years) (2964 / 114 = 26)
     data = [median[i:i + 114] for i in range(0, len(median), 114)] 
-    print(f"{zipcodes}\n-------\n{data}\n-------\nSAMPLE-1: {data[0]}\n \nSAMPLE-2: {data[1]}")
+    print(f"{zipcodes}\n-------\nSAMPLE-1: {data[0]}\n \nSAMPLE-2: {data[1]}")
 
     fig = Figure() 
     years = np.arange(2000, 2026)
@@ -73,6 +74,13 @@ def zipcodes_x_median(median, zipcodes): #!(2964: median_values) (114: zipcodes)
     fig.savefig(buf, format="png")
     data = base64.b64encode(buf.getbuffer()).decode("ascii")
     return data
+
+def piechart(median):
+    ...
+
+
+def testing(): 
+    ...
 
 
 #sample data

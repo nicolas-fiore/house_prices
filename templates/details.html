@@ -1,12 +1,13 @@
 {% extends "layout.html" %}
 
 {% block style_css %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='detail.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
 {% endblock %}
 
 
 
 {% block body %}
+    
     <div id="search">
         <a href="/">Home</a>
         <form action="{{ url_for('gen_graph') }}" method="get">
@@ -23,7 +24,7 @@
         </form>
     </div>
     <div id="graph">
-        <img src='data:image/png;base64,{{ graph }}'/>
+        <img src='data:image/png;base64,{{ barchart }}'/>
     </div>
     <div id="info">
         <h1>SPLIT THE INFO PART into 4 tiny boxes </h1>
