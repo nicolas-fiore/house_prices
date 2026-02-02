@@ -8,10 +8,10 @@
     
     <h1>Alleghany PA Zipcodes</h1>
     <div id="search">
-        <form action="{{ url_for('gen_graph') }}" method="get">
+        <form action="{{ url_for('details') }}" method="get">
             <input list="zipcode" name="zipcode" autocomplete="off" autofocus placeholder="Zipcode" type="text">
                 <datalist id="zipcode">
-                    {% for zip in ZIPCODES %}
+                    {% for zip in zipcodes %}
                         <option value='{{ zip }}'>
                     {% endfor %}
                 </datalist>

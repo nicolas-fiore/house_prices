@@ -57,7 +57,7 @@ SEARCH BOX
 }
 
 #search a:link { 
-    color: #1688da;
+    color: #ecc385;
 }
 
 #search a:visited {
@@ -150,4 +150,21 @@ BOTTOM
 }
 
 
+#blocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 1000px;
+    
+}
 
+.block {
+    color: white; 
+    background-color: red;
+    border: solid 3px black; 
+    margin: 20px;
+    padding: 100px; 
+
+}

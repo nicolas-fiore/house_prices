@@ -10,11 +10,12 @@
     
     <div id="search">
         <a href="/">Home</a>
-        <form action="{{ url_for('gen_graph') }}" method="get">
+        <a href="/api/details?zipcode={{ display }}">API</a>
+        <form action="{{ url_for('details') }}" method="get">
 
             <input list="zipcode" name="zipcode" autocomplete="off" autofocus placeholder="Enter Zipcode" type="text">
                 <datalist id="zipcode">
-                    {% for zip in ZIPCODES %}
+                    {% for zip in zipcodes %}
                         <option value='{{ zip }}'>
                     {% endfor %}
                 </datalist>
@@ -36,7 +37,20 @@
             <li>Total Volume: {{ "${:,.2f}".format(info[3]) }}</li>
         </ul>
     </div>
-
+    <div id="blocks">
+        <div class="block" id="block1">
+            <h2>Mean Price</h2>
+        </div>
+        <div class="block" id="block2">
+            <h2>Price / Sq Ft</h2>
+        </div>
+        <div class="block" id="block3">
+            <h2>Houses Sold</h2>
+        </div>
+        <div class="block" id="block4">
+            <h2>Total Volume</h2>
+        </div>
+    </div>
     <div id="footer">
         <a href="https://github.com/nicolas-fiore">Visit My Github!</a>
     </div>
