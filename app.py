@@ -106,7 +106,7 @@ def get_api():
     zipcode = request.args.get('zipcode')
     zipcodes = get_zipcodes()
     if zipcode not in zipcodes: 
-        return render_template('error.html')
+        return redirect('/?error=Zipcode Entered Was Not Valid')
     
     with open ('house_prices.json') as j: 
         data_dict = json.load(j)
@@ -117,3 +117,9 @@ def get_api():
     }
 
     return zip_data
+
+
+if __name__ == '__main__':
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
