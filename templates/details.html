@@ -24,33 +24,36 @@
 
         </form>
     </div>
-    <div id="graph">
-        <img src='data:image/png;base64,{{ barchart }}'/>
+    
+    <div class="graphs">
+        <img class="barchart" src='data:image/png;base64,{{ barchart }}'/>
+        <div class="piechart">{{ fig | safe}}</div>
     </div>
-    <div id="info">
-        <h1>SPLIT THE INFO PART into 4 tiny boxes </h1>
-        <h1>Average's For {{ display }} Through (2020-2025)</h1>
-        <ul>
-            <li>Mean Price: {{ "${:,.2f}".format(info[0]) }}</li>
-            <li>Price / Sq Ft: {{ "${:.2f}".format(info[1]) }}</li>
-            <li>Houses Sold: {{ info[2]|round|int }}</li>
-            <li>Total Volume: {{ "${:,.2f}".format(info[3]) }}</li>
-        </ul>
+    <div id="middle">
+
+        <div id="block-header"> 
+            <h1>Stats for 2020-2025</h1>
+        </div>
+
+        <div id="blocks">
+    
+            <div class="block" id="block1">
+                <h2>Average Mean Price: <br>{{ "${:,.2f}".format(info[0]) }}</h2>    
+            </div>
+            <div class="block" id="block2">
+                <h2>Average Price / Sq Ft: <br>{{ "${:.2f}".format(info[1]) }}</h2>
+            </div>
+            <div class="block" id="block3">
+                <h2>Total Houses Sold: <br>{{ info[2]|round|int }}</h2>
+            </div>
+            <div class="block" id="block4">
+                <h2>Average Total Volume: <br>{{ "${:,.2f}".format(info[3]) }}</h2>
+            </div>
+        
+        </div>
+    
     </div>
-    <div id="blocks">
-        <div class="block" id="block1">
-            <h2>Mean Price</h2>
-        </div>
-        <div class="block" id="block2">
-            <h2>Price / Sq Ft</h2>
-        </div>
-        <div class="block" id="block3">
-            <h2>Houses Sold</h2>
-        </div>
-        <div class="block" id="block4">
-            <h2>Total Volume</h2>
-        </div>
-    </div>
+    
     <div id="footer">
         <a href="https://github.com/nicolas-fiore">Visit My Github!</a>
     </div>

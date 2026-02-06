@@ -5,7 +5,13 @@
 {% endblock %}
 
 {% block body %} 
-    
+
+    {% if error %}
+    <div id="error-message" style="color: red; text-align: center; padding: 10px; font-size: 16px;">
+        Invalid zipcode. Please try again.
+    </div>
+    {% endif %}
+
     <h1>Alleghany PA Zipcodes</h1>
     <div id="search">
         <form action="{{ url_for('details') }}" method="get">
@@ -21,7 +27,9 @@
     <div id="graph">
         <img src='data:image/png;base64,{{ graph }}'/>
     </div>
-    <h1>Click To Go To A Random Zipcode! {{ ZIPCODES | random }}</h1>
-    <h1>NEED TO ADD THE PIE CHARTS TOO</h1>
+    <div id="random">
+        <h1><a href=/details?zipcode={{ zipcodes | random }}>Click Here To Go To A Random Zipcode!</a></h1>
+    </div>
+    
     
 {% endblock %} 

@@ -1,6 +1,5 @@
 import sqlite3, json
 from graph import house_x_median, zipcodes_x_median, piechart
-import numpy as np
 from flask import Flask, request, redirect, render_template
 
 app = Flask(__name__)
@@ -20,8 +19,7 @@ def get_zipcodes():
     return zipcode
 
 
-@app.route('/')
-def index(): 
+def get_index_content(): 
     zipcodes = get_zipcodes()
     #connect db
     con = get_db()
@@ -33,8 +31,18 @@ def index():
     median = [i[0] for i in median]
     print("THIS IS THE Median", len(median))
     print("-----------------")
+    #graph = zipcodes_x_median(median, zipcodes)
     graph = zipcodes_x_median(median, zipcodes)
-    return render_template('index.html',zipcodes=zipcodes, graph=graph)
+    return zipcodes, graph
+
+
+
+
+@app.route('/')
+def index(): 
+    zipcodes, graph = get_index_content()
+    error = request.args.get("error") 
+    return render_template('index.html',zipcodes=zipcodes, graph=graph, error=error)
 
 
 
@@ -43,9 +51,11 @@ def index():
 def details():
     #get zipcode
     zipcode = request.args.get('zipcode')
+    
     zipcodes = get_zipcodes()
+    
     if zipcode not in zipcodes: 
-        return render_template('error.html')
+        return redirect('/?error=Zipcode Entered Was Not Valid')
     
     #connect db
     con = get_db()
@@ -60,7 +70,7 @@ def details():
     ).fetchall()
     
     info = c.execute(
-        "SELECT AVG(mean_price), AVG(price_per_sqrft), AVG(houses_sold), AVG(total_volume) "
+        "SELECT AVG(mean_price), AVG(price_per_sqrft), houses_sold, AVG(total_volume) "
         "FROM zipcodes WHERE zipcode = ? AND year BETWEEN 2020 AND 2025", 
         (zipcode,)
     ).fetchone()
@@ -69,23 +79,26 @@ def details():
     
     x1 = [r[0] for r in rows] #houses_sold
     x2 = [r[1] for r in rows] #median_price
-    bedrooms_counts = [(r[2], r[3], r[4], r[5]) for r in rows]
-    
+    bedrooms_counts = [[r[2], r[3], r[4], r[5]] for r in rows]
     barchart = house_x_median(x1, x2, zipcode)
-    #piechart = piechart(bedroom_counts)
+    #barchart = house_x_median_plotly(x1, x2, zipcode)
+    piecharts = piechart(bedrooms_counts)
 
-    print(bedrooms_counts)
+
+    
     for value in info: 
         print(value)
     print('-------------------')
     print("this is data: ")
     print(list(zip(x1, x2)))
-    
+
+    #consider also defining the include_plotlyjs parameter to point to an external Plotly.js as described above
     return render_template('details.html', 
                            barchart=barchart, 
                            info=info,
                            display=zipcode,
-                           zipcodes=zipcodes)
+                           zipcodes=zipcodes,
+                           fig=piecharts)
 
 
 @app.route('/api/details')
