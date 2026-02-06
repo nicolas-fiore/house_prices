@@ -13,3 +13,4 @@ house_prices_test.json
 data_test.py
 houses.csv
 C_houses.csv
+.env

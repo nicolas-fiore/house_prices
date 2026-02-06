@@ -1,11 +1,14 @@
 import sqlite3, json
 from graph import house_x_median, zipcodes_x_median, piechart
 from flask import Flask, request, redirect, render_template
+import os
 
 app = Flask(__name__)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def get_db(): 
-    con = sqlite3.connect("zipcodes.db")
+    db_path = os.path.join(BASE_DIR, "zipcodes.db")
+    con = sqlite3.connect(db_path)
     con.row_factory = sqlite3.Row
     return con
 
@@ -70,7 +73,7 @@ def details():
     ).fetchall()
     
     info = c.execute(
-        "SELECT AVG(mean_price), AVG(price_per_sqrft), houses_sold, AVG(total_volume) "
+        "SELECT AVG(mean_price), AVG(price_per_sqrft), SUM(houses_sold), AVG(total_volume) "
         "FROM zipcodes WHERE zipcode = ? AND year BETWEEN 2020 AND 2025", 
         (zipcode,)
     ).fetchone()
@@ -108,7 +111,7 @@ def get_api():
     if zipcode not in zipcodes: 
         return redirect('/?error=Zipcode Entered Was Not Valid')
     
-    with open ('house_prices.json') as j: 
+    with open(os.path.join(BASE_DIR, 'house_prices.json')) as j: 
         data_dict = json.load(j)
 
     zip_data = {
