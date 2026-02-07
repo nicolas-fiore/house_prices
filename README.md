@@ -1,8 +1,21 @@
+# Description
+Mostly made this for some experience with pandas and backend development with flask and python
+
+I did use ai for some of the colors and *aesthetic cause I dont know color theory and Im not trying to get a frontend job! Did write the intial css though
+
+I would like to do more with this but spent way too much time on it a lot of it learning new stuff but would like to start something new 
+
+Hopefully this is a good starting place
+
+
+- **Website Live:** [alleghanyhouses.up.railway.app](https://alleghanyhouses.up.railway.app) 
+
+
 # House Prices in Alleghany Country
 <h5>Data taken from the Westren Pennsylvania Regional Data Center</h5>
 
 Dataset found [here](https://data.wprdc.org/dataset/property-assessments)
-
+ 
 # Alleghany Houses
 
 A Flask web application that visualizes real estate market data for Pittsburgh-area zipcodes (2000-2025).
@@ -25,30 +38,12 @@ A Flask web application that visualizes real estate market data for Pittsburgh-a
 
 # API Endpoints
 
-- `GET /` - Home page with market overview  
-- `GET /details?zipcode=15239` - Detailed market analysis for zipcode  
-- `GET /api/details?zipcode=15239` - JSON response with market data  
+- `GET /` 
+- `GET /details?zipcode=15239` 
+- `GET /api/details?zipcode=15239` 
 
-# Deployment
 
-This app is deployed on Railway:  
 
-- **Live:** [alleghanyhouses.up.railway.app](https://alleghanyhouses.up.railway.app)  
-- Auto-deploys from the main branch on GitHub  
 
-# Requirements
 
-See `requirements.txt` for full list. Key packages:  
 
-- Flask 3.1.2  
-- Matplotlib 3.10.8  
-- Plotly 6.5.2  
-- Gunicorn 25.0.2  
-
-# License
-
-MIT License - feel free to use for personal or educational projects  
-
-# Author
-
-Nicolas Fiore - [GitHub](https://github.com/nicolas-fiore)
