@@ -1,14 +1,15 @@
 # Description
 Mostly made this for some experience with pandas and backend development with flask and python
 
-I did use ai for some of the colors and *aesthetic cause I dont know color theory and Im not trying to get a frontend job! Did write the intial css though
+My css skills arent the best but I didnt want to spend too much time learning how to create a pretty website as I would rather spend time learning something else.
 
 I would like to do more with this but spent way too much time on it a lot of it learning new stuff but would like to start something new 
 
 Hopefully this is a good starting place
 
-
-- **Website Live:** [alleghanyhouses.up.railway.app](https://alleghanyhouses.up.railway.app) 
+**IMPORTANT: Changed the hosting from railway to render beacuse railway only offers 30 day free trial
+This is only temporary for now as the website runs very slowly BUT STILL WORKS** 
+- **Website Live:** [house-prices-cwyv.onrender.com](https://house-prices-cwyv.onrender.com/)
 
 
 # House Prices in Alleghany Country
@@ -34,7 +35,7 @@ A Flask web application that visualizes real estate market data for Pittsburgh-a
 - **Database:** SQLite (zipcodes.db with 2,850 records)
 - **Visualization:** Matplotlib, Plotly
 - **Frontend:** Jinja2 templates, CSS
-- **Deployment:** Railway
+- **Deployment:** Render (was railway) 
 
 # API Endpoints
 
